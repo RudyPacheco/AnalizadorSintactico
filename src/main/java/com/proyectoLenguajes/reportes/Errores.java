@@ -2,11 +2,12 @@ package com.proyectoLenguajes.reportes;
 
 import java.util.ArrayList;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author elvis_agui
+ * @author AndaryuS
  */
 public class Errores {
 
@@ -35,6 +36,17 @@ public class Errores {
         modelo.addColumn("COLUMNA");
         for (String cadena : cadena) {
             modelo.addRow(new Object[]{this.caracter.get(index), cadena, this.fila.get(index), this.columna.get(index)});
+            index++;
+        }
+    }
+    
+     public void imprimirErrores(JTextArea jTextArea) {
+
+        int index = 0;
+     
+        for (String cadena : cadena) {
+
+            jTextArea.append("\n"+"ERROR : "+this.caracter.get(index)+" ("+this.fila.get(index)+" , "+this.columna.get(index)+")");
             index++;
         }
     }

@@ -5,6 +5,7 @@
  */
 package com.proyectoLenguajes.interfazG;
 
+import com.proyecto.Lenguajes.funcionesUI.buscarPalabra;
 import com.proyecto.Lenguajes.funcionesUI.funcionesUI;
 import com.proyectoLenguajes.analizador.Analizador;
 import com.proyectoLenguajes.archivos.LectorArchivo;
@@ -48,6 +49,7 @@ public class home extends javax.swing.JFrame {
     private funcionesUI funciones = new funcionesUI();
     private analizadorSintactico sintactico;
     private UndoManager manager;
+     private buscarPalabra buscarPalabra;
     /**
      * Creates new form home
      */
@@ -408,13 +410,16 @@ public class home extends javax.swing.JFrame {
         //   String txt = jTextPane1.getText();
         //  validar.recibiriCadena(txt, this);
         // this.setVisible(false);
+        jTextArea2.setText("");
         this.analizador = new Analizador(jTextArea1);
         this.sintactico = new analizadorSintactico();
         if (jTextArea1.getText() != null) {
             this.analizador.anlaizar();
-            this.ventanaRpo.setReportErrores(this.analizador.getReporteErrores());
+            //  this.ventanaRpo.setReportErrores(this.analizador.getReporteErrores());
             if (this.analizador.getReporteErrores().isExisteErrores()) {
-                this.ventanaRpo.setVisible(true);
+                
+                // this.ventanaRpo.setVisible(true);
+                this.analizador.getReporteErrores().imprimirErrores(jTextArea2);
             } else {
                 JOptionPane.showMessageDialog(this, "Texto sin Errores");
             }
@@ -431,7 +436,10 @@ public class home extends javax.swing.JFrame {
 
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
         // TODO add your handling code here:
-        this.busqueda = new Busqueda();
+     //   this.busqueda = new Busqueda();
+        
+                this.buscarPalabra=new buscarPalabra();
+        buscarPalabra.buscarpalabra1(jTextArea1, jTextFieldBuscar.getText());
         //   busqueda.buscarpalabra(jTextPane1, jTextFieldBuscar.getText());
 
         //  buscarpalabra(jTextPane1, jTextFieldBuscar.getText());
@@ -448,7 +456,7 @@ public class home extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Solucionar Errores Primero");
             }
         } catch (NullPointerException e) {
-            JOptionPane.showMessageDialog(this, "Debe Analizar Primero");
+            JOptionPane.showMessageDialog(null, "Debe usar el analizador lexico primero");
 
         }
     }//GEN-LAST:event_jButtonReporteActionPerformed
@@ -461,10 +469,13 @@ public class home extends javax.swing.JFrame {
 //         jTextArea2.append(tokens.get(i).getLexema()+" ");
 //        }
 //        }
+            
 
         if (this.sintactico != null) {
             this.sintactico.analizar(this.analizador.getReporte().getTokens());
             this.sintactico.getErrores().enlistarErrores(jTextArea2);
+        }else{
+            JOptionPane.showMessageDialog(null, "Debe usar el analizador lexico primero");
         }
 
 
@@ -484,17 +495,17 @@ public class home extends javax.swing.JFrame {
 //                }
 //            }
 //        }
-    this.funciones.cargarArchivo(jTextArea1);
+        this.funciones.cargarArchivo(jTextArea1);
 
 
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
-        
-       // this.funciones.guardarCambiosArchivo(jTextArea1.getText());
-       this.funciones.guardarComo(jTextArea1);
-        
+
+        // this.funciones.guardarCambiosArchivo(jTextArea1.getText());
+        this.funciones.guardarComo(jTextArea1);
+
 //        if (seleccionar.showDialog(null, "guaradar") == JFileChooser.APPROVE_OPTION) {
 //            archivo = seleccionar.getSelectedFile();
 //            if (archivo.getName().endsWith("txt")) {
@@ -556,15 +567,15 @@ public class home extends javax.swing.JFrame {
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         // TODO add your handling code here:
         String documento = jTextArea1.getText();
-     //   guardarCambiosArchivo(archivo, documento);
-        
+        //   guardarCambiosArchivo(archivo, documento);
+
         this.funciones.guardarCambiosArchivo(documento);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
-       //archivoNuevo();
-        this.funciones.archivoNuevo( jTextArea1);
+        //archivoNuevo();
+        this.funciones.archivoNuevo(jTextArea1);
 
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
@@ -576,7 +587,7 @@ public class home extends javax.swing.JFrame {
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         // TODO add your handling code here:
-                AcercaDe info = new AcercaDe();
+        AcercaDe info = new AcercaDe();
         info.setVisible(true);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
@@ -688,21 +699,21 @@ public class home extends javax.swing.JFrame {
             int eleccion = JOptionPane.showConfirmDialog(null, "¿Desea guardar el archivo antes de cerrarlo?");
             if (eleccion == JOptionPane.YES_OPTION) {
                 //guardarComoArchivo(archivo, documneto);
-                     if (seleccionar.showDialog(null, "guaradar") == JFileChooser.APPROVE_OPTION) {
-                archivo = seleccionar.getSelectedFile();
-                if (archivo.getName().endsWith("txt")) {
-                 //   String documneto = jTextArea1.getText();
-                    mensaje = guardarComoArchivo(archivo, documneto);
-                    if (mensaje != null) {
-                        JOptionPane.showMessageDialog(null, "Archivo guardado");
+                if (seleccionar.showDialog(null, "guaradar") == JFileChooser.APPROVE_OPTION) {
+                    archivo = seleccionar.getSelectedFile();
+                    if (archivo.getName().endsWith("txt")) {
+                        //   String documneto = jTextArea1.getText();
+                        mensaje = guardarComoArchivo(archivo, documneto);
+                        if (mensaje != null) {
+                            JOptionPane.showMessageDialog(null, "Archivo guardado");
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Error al guarda archivo");
+                        }
                     } else {
-                        JOptionPane.showMessageDialog(null, "Error al guarda archivo");
+                        JOptionPane.showMessageDialog(null, "Guardar texto");
                     }
-                } else {
-                    JOptionPane.showMessageDialog(null, "Guardar texto");
                 }
-            }
-                
+
             }
             if (eleccion == JOptionPane.NO_OPTION) {
                 archivo = null;

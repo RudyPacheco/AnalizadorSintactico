@@ -1,19 +1,28 @@
-package com.proyectoLenguajes.principal;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package com.proyecto.Lenguajes.funcionesUI;
 
 import java.awt.Color;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
+import javax.swing.JTextPane;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.DefaultHighlighter;
 import javax.swing.text.Highlighter;
 
 /**
- *
+ * 
  * @author AndaryuS
  */
-public class Busqueda {
+public class buscarPalabra {
 
-    private String text;
+      private String text;
     private int contadorTexto = 0;
     private int contadorPalabra = 0;
     private int p0 = -1;
@@ -64,4 +73,30 @@ public class Busqueda {
             JOptionPane.showMessageDialog(null, "debe escribir primero");
         }
     }
+    
+    
+       public void buscarpalabra1(JTextArea area1, String texto) {
+        if (texto.length() >= 1) {
+            DefaultHighlighter.DefaultHighlightPainter highlightPainter = new DefaultHighlighter.DefaultHighlightPainter(Color.GREEN);
+            Highlighter h = area1.getHighlighter();
+            h.removeAllHighlights();
+            String text = area1.getText();
+            String caracteres = texto;
+            Pattern p = Pattern.compile("(?i)" + caracteres);
+            Matcher m = p.matcher(text);
+            while (m.find()) {
+                try {
+                    h.addHighlight(m.start(), m.end(), highlightPainter);
+                } catch (BadLocationException ex) {
+                   // Logger.getLogger(color.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        } else {
+             Highlighter h = area1.getHighlighter();
+            h.removeAllHighlights();
+         //   JOptionPane.showMessageDialog(area1, "la palabra a buscar no puede ser vacia");
+        }
+    
+    }
+    
 }

@@ -5,7 +5,7 @@ import com.proyectoLenguajes.reportes.Errores;
 
 /**
  *
- * @author elvis_agui
+ * @author AndaryuS
  */
 public class ReporteError extends javax.swing.JFrame {
 

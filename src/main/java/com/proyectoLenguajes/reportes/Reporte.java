@@ -6,7 +6,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author elvis_agui
+ * @author AndaryuS
  */
 public class Reporte {
 
@@ -39,7 +39,7 @@ public class Reporte {
         modelo.addColumn("FILA");
         modelo.addColumn("COLUMNA");
         for (Tokens token : this.Tokens) {
-            modelo.addRow(new Object[]{token.getTipoToken(), token.getLexema(), token.getFila(), token.getColumna()});
+            modelo.addRow(new Object[]{this.nombreParaListado(token.getTipoToken()), token.getLexema(), token.getFila(), token.getColumna()});
             index++;
         }
     }
@@ -183,6 +183,56 @@ public class Reporte {
             }
         }
     }
+   
+    public String nombreParaListado(String tipoToken) {
+        switch (tipoToken) {
+            case "id":
+                tipoToken = "IDENTIFICADOR";
+                break;
+            case "ESCRIBIR":
+                tipoToken = "RESERVADA";
+                break;
+            case "FIN":
+                tipoToken = "RESERVADA";
+                break;
+            case "REPETIR":
+                tipoToken = "RESERVADA";
+                break;
+            case "INICIAR":
+                tipoToken = "RESERVADA";
+                break;
+            case "SI":
+                tipoToken = "RESERVADA";
+                break;
+            case "VERDADERO":
+                tipoToken = "RESERVADA";
+                break;
+            case "FALSO":
+                tipoToken = "RESERVADA";
+                break;
+            case "ENTONCES":
+                tipoToken = "RESERVADA";
+                break;
+            case "=":
+                tipoToken = "IGUAL";
+                break;
+            case "+":
+                tipoToken = "OPERADOR";
+                break;
+            case "*":
+                tipoToken = "OPERADOR";
+                break;
+            case "(":
+                tipoToken = "AGRUPACION";
+                break;
+            case ")":
+                tipoToken = "AGRUPACION";
+                break;
+        }
+
+        return tipoToken;
+    }
+
 
     public Errores getReporteErrores() {
         return reporteErrores;

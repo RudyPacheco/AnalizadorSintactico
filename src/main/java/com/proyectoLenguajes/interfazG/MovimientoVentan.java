@@ -9,7 +9,7 @@ import com.proyectoLenguajes.analizador.Analizador;
 
 /**
  *
- * @author elvis_agui
+ * @author AndaryuS
  */
 public class MovimientoVentan extends javax.swing.JFrame {
 

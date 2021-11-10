@@ -8,7 +8,7 @@ import javax.swing.JTextArea;
 
 /**
  *
- * @author elvis_agui
+ * @author AndaryuS
  */
 public class Analizador {
 
@@ -157,7 +157,7 @@ public class Analizador {
             }
         }
     }
-
+    
     public Errores getReporteErrores() {
         return reporteErrores;
     }

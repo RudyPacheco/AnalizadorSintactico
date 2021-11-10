@@ -3,7 +3,7 @@ package com.proyectoLenguajes.analizador;
 
 /**
  *
- * @author elvis_agui
+ * @author AndaryuS
  */
 public class MatrizEstados {
 
@@ -21,7 +21,7 @@ public class MatrizEstados {
         this.matriz[0][3] = -1;
         this.matriz[0][4] = 10;
         this.matriz[0][5] = 11;
-        this.matriz[0][6] = -1;
+        this.matriz[0][6] = 7;
         this.matriz[0][7] = 5;
         this.matriz[0][8] = 4;
         this.matriz[0][9] = 3;

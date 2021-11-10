@@ -1,10 +1,11 @@
 package com.proyectoLenguajes.interfazG;
 
 import com.proyectoLenguajes.reportes.Reporte;
+import javax.swing.SwingConstants;
 
 /**
  *
- * @author elvis_agui
+ * @author AndaryuS
  */
 public class Reportes extends javax.swing.JFrame {
 
@@ -25,10 +26,13 @@ public class Reportes extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         ReportejTable = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        jPanelIzquierdo = new javax.swing.JPanel();
+        jPanelSuperior = new javax.swing.JPanel();
+        jLabelTitulo = new javax.swing.JLabel();
+        jPanelInferior = new javax.swing.JPanel();
+        jPanelDerecho = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Reportes");
@@ -36,10 +40,7 @@ public class Reportes extends javax.swing.JFrame {
         setExtendedState(6);
 
         jPanel1.setBackground(new java.awt.Color(0, 204, 204));
-
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("REPORTES");
+        jPanel1.setLayout(new java.awt.BorderLayout());
 
         ReportejTable.setBackground(new java.awt.Color(204, 204, 204));
         ReportejTable.setBorder(new javax.swing.border.MatteBorder(null));
@@ -59,39 +60,85 @@ public class Reportes extends javax.swing.JFrame {
         ReportejTable.setEnabled(false);
         jScrollPane1.setViewportView(ReportejTable);
 
-        jButton1.setText("RECUENTO LEXEMAS");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        jPanel1.add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
-                    .addComponent(jLabel1))
-                .addGap(53, 53, 53)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 657, Short.MAX_VALUE)
-                .addContainerGap())
+        jPanelIzquierdo.setBackground(new java.awt.Color(0, 153, 255));
+
+        javax.swing.GroupLayout jPanelIzquierdoLayout = new javax.swing.GroupLayout(jPanelIzquierdo);
+        jPanelIzquierdo.setLayout(jPanelIzquierdoLayout);
+        jPanelIzquierdoLayout.setHorizontalGroup(
+            jPanelIzquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(80, 80, 80)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 631, Short.MAX_VALUE))
-                .addContainerGap())
+        jPanelIzquierdoLayout.setVerticalGroup(
+            jPanelIzquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 443, Short.MAX_VALUE)
         );
+
+        jPanel1.add(jPanelIzquierdo, java.awt.BorderLayout.LINE_START);
+
+        jPanelSuperior.setBackground(new java.awt.Color(0, 153, 255));
+
+        jLabelTitulo.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelTitulo.setFont(new java.awt.Font("MesloLGS NF", 1, 36)); // NOI18N
+        jLabelTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelTitulo.setText("Reportes");
+        jLabelTitulo.setToolTipText("");
+        jLabelTitulo.setHorizontalAlignment(SwingConstants.CENTER);
+        jLabelTitulo.setVerticalAlignment(SwingConstants.CENTER);
+
+        javax.swing.GroupLayout jPanelSuperiorLayout = new javax.swing.GroupLayout(jPanelSuperior);
+        jPanelSuperior.setLayout(jPanelSuperiorLayout);
+        jPanelSuperiorLayout.setHorizontalGroup(
+            jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 998, Short.MAX_VALUE)
+            .addGroup(jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelSuperiorLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabelTitulo)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanelSuperiorLayout.setVerticalGroup(
+            jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelSuperiorLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabelTitulo)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        jPanel1.add(jPanelSuperior, java.awt.BorderLayout.PAGE_START);
+
+        jPanelInferior.setBackground(new java.awt.Color(0, 153, 255));
+
+        javax.swing.GroupLayout jPanelInferiorLayout = new javax.swing.GroupLayout(jPanelInferior);
+        jPanelInferior.setLayout(jPanelInferiorLayout);
+        jPanelInferiorLayout.setHorizontalGroup(
+            jPanelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 998, Short.MAX_VALUE)
+        );
+        jPanelInferiorLayout.setVerticalGroup(
+            jPanelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanelInferior, java.awt.BorderLayout.PAGE_END);
+
+        jPanelDerecho.setBackground(new java.awt.Color(0, 153, 255));
+
+        javax.swing.GroupLayout jPanelDerechoLayout = new javax.swing.GroupLayout(jPanelDerecho);
+        jPanelDerecho.setLayout(jPanelDerechoLayout);
+        jPanelDerechoLayout.setHorizontalGroup(
+            jPanelDerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanelDerechoLayout.setVerticalGroup(
+            jPanelDerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 443, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanelDerecho, java.awt.BorderLayout.LINE_END);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -107,12 +154,6 @@ public class Reportes extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.repoConteo = new ReporteConteo();
-        this.repoConteo.setReportErrores(reporte);
-        this.repoConteo.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void desplegar() {
         this.reporte.enlistarReporte(ReportejTable);
     }
@@ -124,9 +165,12 @@ public class Reportes extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable ReportejTable;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanelDerecho;
+    private javax.swing.JPanel jPanelInferior;
+    private javax.swing.JPanel jPanelIzquierdo;
+    private javax.swing.JPanel jPanelSuperior;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

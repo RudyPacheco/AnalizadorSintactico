@@ -2,7 +2,7 @@ package com.proyectoLenguajes.reportes;
 
 /**
  *
- * @author elvis_agui
+ * @author AndaryuS
  */
 public enum PalbraResevada {
 

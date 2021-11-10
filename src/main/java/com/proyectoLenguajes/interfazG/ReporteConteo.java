@@ -4,7 +4,7 @@ import com.proyectoLenguajes.reportes.Reporte;
 
 /**
  *
- * @author elvis_agui
+ * @author AndaryuS
  */
 public class ReporteConteo extends javax.swing.JFrame {
 
